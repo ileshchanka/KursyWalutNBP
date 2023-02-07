@@ -3,22 +3,17 @@ package info.igorek.kursywalutnbp.di
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
+import info.igorek.kursywalutnbp.MainActivity
+import info.igorek.kursywalutnbp.api.NetworkModule
 import javax.inject.Singleton
 
 @Component(
-    modules = [],
+    modules = [
+        NetworkModule::class,
+    ],
 )
 @Singleton
 interface AppComponent {
-
-    @Component.Builder
-    interface Builder {
-
-        fun build(): AppComponent
-
-        @BindsInstance
-        fun context(context: Context): Builder
-    }
 
     companion object {
         private var component: AppComponent? = null
@@ -35,4 +30,15 @@ interface AppComponent {
             return component ?: throw NotImplementedError("You should call 'init' method")
         }
     }
+
+    @Component.Builder
+    interface Builder {
+
+        fun build(): AppComponent
+
+        @BindsInstance
+        fun context(context: Context): Builder
+    }
+
+    fun inject(where: MainActivity)
 }
