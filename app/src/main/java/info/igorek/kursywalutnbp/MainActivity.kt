@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             KursyWalutNBPTheme {
                 HomeScreen(
-                    homeViewModel = viewModel(factory = viewModelFactory)
+                    homeViewModel = viewModel(factory = viewModelFactory),
                 )
             }
         }

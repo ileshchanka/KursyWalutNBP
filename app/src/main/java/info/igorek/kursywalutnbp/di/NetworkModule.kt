@@ -30,7 +30,6 @@ class NetworkModule {
         return GsonConverterFactory.create()
     }
 
-
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
@@ -54,5 +53,4 @@ class NetworkModule {
             .build()
         return retrofit.create(ServerApi::class.java)
     }
-
 }

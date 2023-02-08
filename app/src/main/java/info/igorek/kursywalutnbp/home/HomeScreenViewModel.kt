@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import info.igorek.kursywalutnbp.api.repository.TablesRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class HomeScreenViewModel(
@@ -18,17 +20,18 @@ class HomeScreenViewModel(
     )
 
     private val _state = MutableStateFlow(State())
+    val state: StateFlow<State> = _state
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-//            val item = tablesRepository.getTable("A")
-//            _state.update {
-//                it.copy(
-//                    table = item.table,
-//                    no = item.no,
-//                    effectiveDate = item.effectiveDate,
-//                )
-//            }
+            val item = tablesRepository.getTable("A")
+            _state.update {
+                it.copy(
+                    table = item.table,
+                    no = item.no,
+                    effectiveDate = item.effectiveDate,
+                )
+            }
         }
     }
 }

@@ -1,11 +1,10 @@
 package info.igorek.kursywalutnbp.api.model.remote
 
 import com.google.gson.annotations.SerializedName
+import info.igorek.kursywalutnbp.api.model.remote.TableArrayRemote.TableRemote
 
-data class TableRemote(
-    val list: List<TableItem>,
-) {
-    data class TableItem(
+class TableArrayRemote : ArrayList<TableRemote>() {
+    data class TableRemote(
         @SerializedName("table")
         val table: String,
         @SerializedName("no")
@@ -13,9 +12,10 @@ data class TableRemote(
         @SerializedName("effectiveDate")
         val effectiveDate: String,
         @SerializedName("rates")
-        val rates: List<Rate>,
+        val rates: List<RateRemote>,
     ) {
-        data class Rate(
+
+        data class RateRemote(
             @SerializedName("currency")
             val currency: String,
             @SerializedName("code")
