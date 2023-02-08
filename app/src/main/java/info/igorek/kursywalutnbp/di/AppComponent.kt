@@ -3,13 +3,13 @@ package info.igorek.kursywalutnbp.di
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
-import info.igorek.kursywalutnbp.MainActivity
-import info.igorek.kursywalutnbp.api.NetworkModule
+import info.igorek.kursywalutnbp.home.HomeScreenViewModelFactory
 import javax.inject.Singleton
 
 @Component(
     modules = [
         NetworkModule::class,
+        RepositoryModule::class,
     ],
 )
 @Singleton
@@ -40,5 +40,5 @@ interface AppComponent {
         fun context(context: Context): Builder
     }
 
-    fun inject(where: MainActivity)
+    fun getHomeScreenViewModelFactory(): HomeScreenViewModelFactory
 }

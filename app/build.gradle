@@ -23,8 +23,14 @@ android {
 
     buildTypes {
         release {
+            debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_API_URL", "\"http://api.nbp.pl/api/\""
+        }
+        debug {
+            debuggable true
+            buildConfigField "String", "BASE_API_URL", "\"http://api.nbp.pl/api/\""
         }
     }
     compileOptions {
@@ -89,7 +95,7 @@ dependencies {
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
-//    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
 //    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3"
 
     // ktlint
@@ -98,5 +104,8 @@ dependencies {
             attribute(Bundling.BUNDLING_ATTRIBUTE, getObjects().named(Bundling, Bundling.EXTERNAL))
         }
     }
+
+    // ViewModel
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1'
 
 }
