@@ -2,6 +2,7 @@ package info.igorek.kursywalutnbp.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import info.igorek.kursywalutnbp.api.model.ui.TableArrayUi.TableUi.RateUi
 import info.igorek.kursywalutnbp.api.repository.TablesRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,6 +18,7 @@ class HomeScreenViewModel(
         val table: String = "",
         val no: String = "",
         val effectiveDate: String = "",
+        val rateList: List<RateUi> = emptyList(),
     )
 
     private val _state = MutableStateFlow(State())
@@ -30,6 +32,7 @@ class HomeScreenViewModel(
                     table = item.table,
                     no = item.no,
                     effectiveDate = item.effectiveDate,
+                    rateList = item.rates,
                 )
             }
         }
