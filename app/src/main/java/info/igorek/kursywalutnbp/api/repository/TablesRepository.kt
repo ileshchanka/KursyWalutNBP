@@ -1,7 +1,7 @@
 package info.igorek.kursywalutnbp.api.repository
 
 import info.igorek.kursywalutnbp.api.ServerApi
-import info.igorek.kursywalutnbp.api.model.mapper.TableRemoteToUiMapper
+import info.igorek.kursywalutnbp.api.mapper.TableRemoteToUiMapper
 import info.igorek.kursywalutnbp.api.model.ui.TableArrayUi.TableUi
 import javax.inject.Inject
 

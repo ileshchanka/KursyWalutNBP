@@ -10,10 +10,6 @@ import info.igorek.kursywalutnbp.ui.theme.KursyWalutNBPTheme
 
 class MainActivity : ComponentActivity() {
 
-//    init {
-//        AppComponent.get().inject(this)
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             KursyWalutNBPTheme {
                 HomeScreen(
-                    homeViewModel = viewModel(factory = viewModelFactory),
+                    viewModel = viewModel(factory = viewModelFactory),
                 )
             }
         }

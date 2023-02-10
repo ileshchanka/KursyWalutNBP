@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import info.igorek.kursywalutnbp.api.model.ui.TableArrayUi.TableUi.RateUi
 import info.igorek.kursywalutnbp.api.repository.TablesRepository
+import info.igorek.kursywalutnbp.tools.EMPTY_STRING
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,9 +16,9 @@ class HomeScreenViewModel(
 ) : ViewModel() {
 
     data class State(
-        val table: String = "",
-        val no: String = "",
-        val effectiveDate: String = "",
+        val table: String = EMPTY_STRING,
+        val no: String = EMPTY_STRING,
+        val effectiveDate: String = EMPTY_STRING,
         val rateList: List<RateUi> = emptyList(),
     )
 
@@ -26,7 +27,7 @@ class HomeScreenViewModel(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            val item = tablesRepository.getTable("A")
+            val item = tablesRepository.getTable("B")
             _state.update {
                 it.copy(
                     table = item.table,

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Kursy Walut NBP</string>
+
+    <string name="currency">Currency</string>
+    <string name="code">Code</string>
+    <string name="rate">Rate</string>
 </resources>
