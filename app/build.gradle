@@ -21,6 +21,7 @@ android {
         }
     }
 
+    // http://api.nbp.pl/en.html
     buildTypes {
         release {
             debuggable false
@@ -44,7 +45,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.2.0'
+        kotlinCompilerExtensionVersion '1.4.0'
     }
     packagingOptions {
         resources {

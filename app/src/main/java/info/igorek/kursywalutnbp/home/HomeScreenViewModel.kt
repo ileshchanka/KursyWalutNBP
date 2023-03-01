@@ -15,6 +15,10 @@ class HomeScreenViewModel(
     private val tablesRepository: TablesRepository,
 ) : ViewModel() {
 
+    companion object {
+        const val TABLE_TYPE = "A"
+    }
+
     data class State(
         val table: String = EMPTY_STRING,
         val no: String = EMPTY_STRING,
@@ -27,7 +31,7 @@ class HomeScreenViewModel(
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            val item = tablesRepository.getTable("B")
+            val item = tablesRepository.getTable(TABLE_TYPE)
             _state.update {
                 it.copy(
                     table = item.table,
